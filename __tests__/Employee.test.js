@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 
-const obj = new Employee('jacob', 2, 'jacob@jacobplace.net');
+const obj = new Employee('jacob', 2, 'jacob@jacobplace.net', 'engineer');
 
 describe('Employee', () => {
     describe('getName', () => {
@@ -17,7 +17,7 @@ describe('Employee', () => {
     describe('getId', () => {
         it('should return the Employee"s id number when called', () => {
 
-            console.log(`Returned ${obj.id}`)
+            console.log(`Returned ${obj.id}`);
 
             expect(obj.id).toEqual(2);
         });
@@ -27,7 +27,15 @@ describe('Employee', () => {
         it('should return the Employee"s assigned email when called', () => {
             console.log(`Return ${obj.email}`);
 
-            expect(obj.email).toEqual('jacob@jacobplace.net')
+            expect(obj.email).toEqual('jacob@jacobplace.net');
+        });
+    });
+
+    describe('getRole', () => {
+        it('should return the role that the Employee is assigned to when called', () => {
+            console.log(`Returned ${obj.role}`);
+
+            expect(obj.role).toEqual('engineer');
         });
     });
 });
