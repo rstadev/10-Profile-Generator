@@ -33,9 +33,9 @@ describe('Employee', () => {
 
     describe('getRole', () => {
         it('should return the role that the Employee is assigned to when called', () => {
-            console.log(`Returned ${obj.role}`);
+            console.log(`Returned ${obj.getRole()}`);
 
-            expect(obj.role).toEqual('engineer');
+            expect(obj.getRole()).toEqual('Employee');
         });
     });
 });
