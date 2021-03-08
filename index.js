@@ -1,24 +1,10 @@
 const jest = require('jest');
 const inquirer = require('inquirer');
+const Employee = require('./lib/Employee.js')
 
-function Employee(name, id, email) {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.getName = () => {
+// Employee.prototype.getName = () => {
 
-    }
-    this.getId = () => {
-        
-    }
-    this.getEmail= () => {
-        
-    }
-    this.getRole = () => {
-        
-    }
-};
-
+// }
 
 const robert = new Employee('robert', 1, 'robert@place.net');
 
