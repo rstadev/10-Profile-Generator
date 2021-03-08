@@ -23,4 +23,11 @@ describe('Employee', () => {
         });
     });
 
+    describe('getEmail', () => {
+        it('should return the Employee"s assigned email when called', () => {
+            console.log(`Return ${obj.email}`);
+
+            expect(obj.email).toEqual('jacob@jacobplace.net')
+        });
+    });
 });
