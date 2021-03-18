@@ -38,11 +38,11 @@ describe('Manager', () => {
         });
     });
 
-    describe('officeNumber', () => {
-        it('should return officeNumber property when called', () => {
-            console.log(`Returned ${obj.officeNumber}`);
+    // describe('officeNumber', () => {
+    //     it('should return the officeNumber property when called', () => {
+    //         console.log(`Returned ${obj.officeNumber}`);
 
-            expect(obj.officeNumber).toEqual(111);
-        });
-    });
+    //         expect(obj.officeNumber).toEqual(111);
+    //     });
+    // });
 });

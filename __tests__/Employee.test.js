@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 
-const obj = new Employee(2, 'jacob', 'jacob@jacobplace.net', 'engineer');
+const obj = new Employee(2, 'jacob', 'jacob@jacobplace.net');
 
 describe('Employee', () => {
     describe('getName', () => {
