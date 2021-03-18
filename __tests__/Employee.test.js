@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee');
 
 
-const obj = new Employee('jacob', 2, 'jacob@jacobplace.net', 'engineer');
+const obj = new Employee(2, 'jacob', 'jacob@jacobplace.net', 'engineer');
 
 describe('Employee', () => {
     describe('getName', () => {
@@ -32,7 +32,7 @@ describe('Employee', () => {
     });
 
     describe('getRole', () => {
-        it('should return the role that the Employee is assigned to when called', () => {
+        it('should return Employee when called', () => {
             console.log(`Returned ${obj.getRole()}`);
 
             expect(obj.getRole()).toEqual('Employee');
