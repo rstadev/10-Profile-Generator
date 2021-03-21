@@ -8,28 +8,38 @@ const Manager = require('./lib/Manager.js');
 
 function init() {
   inquirer.prompt([
-  {
-    type: 'input',
-    name:'ID',
-    message:'What is your Team Manager"s employee id?',
-  },
-  {
-    type: 'input',
-    name:'Name',
-    message:'What is your Team Manager"s name?',
-  },
-  {
-    type: 'input',
-    name:'email',
-    message:'What is your Team Manager"s email address?',
-  },
-  // {
-  //   type: 'input',
-  //   name:'',
-  //   message:'What is your Team Manager"s office number?',
-  // }
+    {
+      type: 'input',
+      name:'idM',
+      message:'What is your Team Manager"s employee id?',
+    },
+    {
+      type: 'input',
+      name:'nameM',
+      message:'What is your Team Manager"s name?',
+    },
+    {
+      type: 'input',
+      name:'emailM',
+      message:'What is your Team Manager"s email address?',
+    },
+    {
+      type: 'input',
+      name:'officeM',
+      message:'What is your Team Manager"s office number?',
+    },
+    {
+      type: 'list',
+      name:'roleAdd',
+      message:'What team member would you like to add? If none, press none!',
+      choices:['Team Manager', 'Engineer', 'Intern', 'None']
+    }
   ]).then(answers => {
     console.log(answers)
+    //mOutput is manager output, includes entries from top portion of questions for now.
+    const mOutput = new Manager(answers.idM, answers.nameM, answers.emailM, answers.officeM);
+
+    console.log(mOutput)
   });
 
 }
