@@ -121,7 +121,7 @@ function addEmployee() {
         internGen();
         break;
       case 'None':
-        console.log('Should exit and write file.')
+        // linktest();
     };
   });
 };
@@ -153,7 +153,11 @@ writeToFile = (fileName, data) => {
     err ? console.error(err) : console.log("Success!")
   )
 };
+init();
 
+
+
+module.exports = employees
 // function init() {
 //   inquirer.prompt(questions).then(answers => {
 //     console.log(answers);
@@ -161,8 +165,79 @@ writeToFile = (fileName, data) => {
 //     console.log(philipgen);
 //   });
 // };
-init();
 // const eOutput = new Engineer(answers.idE, answers.nameE, answers.emailE, answers.github);
 
 // console.log(robert);
 // const robert = new Employee('robert', 1, 'robert@place.net');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
