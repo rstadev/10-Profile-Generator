@@ -6,37 +6,48 @@ const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
 
+const questions = [
+  {
+    type: 'input',
+    name:'idM',
+    message:'What is your Team Manager"s employee id?',
+  },
+  {
+    type: 'input',
+    name:'nameM',
+    message:'What is your Team Manager"s name?',
+  },
+  {
+    type: 'input',
+    name:'emailM',
+    message:'What is your Team Manager"s email address?',
+  },
+  {
+    type: 'input',
+    name:'officeM',
+    message:'What is your Team Manager"s office number?',
+  },
+  {
+    type: 'list',
+    name:'roleAdd',
+    message:'What team member would you like to add? If none, press none!',
+    choices:['Team Manager', 'Engineer', 'Intern', 'None']
+  }
+]
+
+
 function init() {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name:'idM',
-      message:'What is your Team Manager"s employee id?',
-    },
-    {
-      type: 'input',
-      name:'nameM',
-      message:'What is your Team Manager"s name?',
-    },
-    {
-      type: 'input',
-      name:'emailM',
-      message:'What is your Team Manager"s email address?',
-    },
-    {
-      type: 'input',
-      name:'officeM',
-      message:'What is your Team Manager"s office number?',
-    },
-    {
-      type: 'list',
-      name:'roleAdd',
-      message:'What team member would you like to add? If none, press none!',
-      choices:['Team Manager', 'Engineer', 'Intern', 'None']
+  inquirer.prompt(questions).then(answers => {
+    //Callbacks from other defined functions using inquirer should go here, depending on the answer from roleAdd. This is where the engine should stay, change the prompt rather than this, don't forget.
+    switch (answers.roleAdd) {
+      case 'Engineer':
+        console.log('Worked Engineer!');
+        break;
+      case 'Intern':
+        console.log('Worked Intern!');
+        break;
+      
     }
-  ]).then(answers => {
-    console.log(answers)
-    //mOutput is manager output, includes entries from top portion of questions for now.
     const mOutput = new Manager(answers.idM, answers.nameM, answers.emailM, answers.officeM);
 
     console.log(mOutput)
