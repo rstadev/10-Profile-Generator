@@ -10,17 +10,17 @@ let employees = [];
 const questions = [
   {
     type: 'input',
-    name:'idM',
+    name:'id',
     message:'What is your Team Manager"s employee id?',
   },
   {
     type: 'input',
-    name:'nameM',
+    name:'name',
     message:'What is your Team Manager"s name?',
   },
   {
     type: 'input',
-    name:'emailM',
+    name:'email',
     message:'What is your Team Manager"s email address?',
   },
   {
@@ -28,8 +28,51 @@ const questions = [
     name:'office',
     message:'What is your Team Manager"s office number?',
   },
-  
-]
+];
+const questionsEngineer = [
+  {
+    type: 'input',
+    name:'id',
+    message:'What is your Engineer"s employee id?',
+  },
+  {
+    type: 'input',
+    name:'name',
+    message:'What is your Engineer"s name?',
+  },
+  {
+    type: 'input',
+    name:'email',
+    message:'What is your Engineer"s email address?',
+  },
+  {
+    type: 'input',
+    name:'github',
+    message:'What is your Engineer"s github profile?',
+  },
+];
+const questionsIntern = [
+  {
+    type: 'input',
+    name: 'id',
+    message: 'What is your Intern"s employee id?',
+  },
+  {
+    type: 'input',
+    name: 'name',
+    message: 'What is your Intern"s name?',
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your Intern"s email address?',
+  },
+  {
+    type: 'input',
+    name: 'school',
+    message: 'What is your Intern"s school?',
+  },
+];
 
 
 function init() {
@@ -50,59 +93,32 @@ function init() {
       //     // const iOutput
       //     break;
       
-      const mOutput = new Manager(answers.idM, answers.nameM, answers.emailM, answers.officeM);
-
+      const mOutput = new Manager(answers.id, answers.name, answers.email, answers.office);
       employees.push(mOutput);
-      console.log(employees)
+      console.log(employees);
       //   };
 
       // console.log(iOutput)
       addEmployee();
     });
     
-}
-
-const questionsEngineer = [
-  {
-    type: 'input',
-    name:'idE',
-    message:'What is your Engineer"s employee id?',
-  },
-  {
-    type: 'input',
-    name:'nameE',
-    message:'What is your Engineer"s name?',
-  },
-  {
-    type: 'input',
-    name:'emailE',
-    message:'What is your Engineer"s email address?',
-  },
-  {
-    type: 'input',
-    name:'github',
-    message:'What is your Engineer"s github profile?',
-  },
-  
-];
+};
 function addEmployee() {
   inquirer.prompt(
   {
       type: 'list',
       name: 'roleAdd',
-      message: 'What team member would you like to add? If none, press none!',
-      choices: ['Team Manager', 'Engineer', 'Intern', 'None']
+      message: 'What team member would you like to add? Press none to generate your file.',
+      choices: ['Engineer', 'Intern', 'None. Generate File Please!']
   }).then(answers => {
     switch (answers.roleAdd) {
       case 'Engineer':
         console.log('Worked Engineer!');
-
-        console.log(eOutput)
-
+        enginnerGen();
         break;
       case 'Intern':
         console.log('Worked Intern!');
-        // const iOutput
+        internGen();
         break;
       case 'None':
         console.log('Should exit and write file.')
@@ -110,34 +126,24 @@ function addEmployee() {
   });
 };
   
-const questionsIntern = [
-  {
-    type: 'input',
-    name: 'idI',
-    message: 'What is your Intern"s employee id?',
-  },
-  {
-    type: 'input',
-    name: 'nameI',
-    message: 'What is your Intern"s name?',
-  },
-  {
-    type: 'input',
-    name: 'emailI',
-    message: 'What is your Intern"s email address?',
-  },
-  {
-    type: 'input',
-    name: 'school',
-    message: 'What is your Intern"s school?',
-  },
-  // {
-  //   type: 'list',
-  //   name:'roleAdd',
-  //   message:'What team member would you like to add? If none, press none!',
-  //   choices:['Team Manager', 'Engineer', 'Intern', 'None']
-  // }
-]
+function enginnerGen () {
+  inquirer.prompt(questionsEngineer).then(answers => {
+    const eOutput = new Engineer(answers.id, answers.name, answers.email, answers.github);
+    employees.push(eOutput);
+    console.log(employees);
+    addEmployee();
+  });
+};
+
+function internGen () {
+  inquirer.prompt(questionsIntern).then(answers => {
+    const iOutput = new Intern(answers.id, answers.name, answers.email, answers.school);
+    employees.push(iOutput);
+    console.log(employees);
+    addEmployee();
+  });
+};
+
 
 
 
