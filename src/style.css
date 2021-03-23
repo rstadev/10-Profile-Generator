@@ -6,3 +6,20 @@
   padding: 4em;
   height: 30%;
 }
+
+.card {
+  display:inline-block;
+}
+.card-deck {
+  text-align: center;
+  padding-top: 200px;
+}
+
+.blue-style {
+  background-color: lightskyblue;
+}
+
+.centerCards {
+  width: 400 px;
+  margin:0 auto;
+}
