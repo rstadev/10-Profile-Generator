@@ -96,6 +96,26 @@ function init() {
       
       const mOutput = new Manager(answers.id, answers.name, answers.email, answers.office);
       employees.push(mOutput);
+      const htmlGen = `
+      <div class="card">
+      <div class= "card-header blue-style">
+        <h4>${mOutput.getName()}</h4>
+        <h5>${mOutput.getRole()}</h5>
+      </div>
+      <div class= "card-body">
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+          <li class="list-group-item">ID: ${mOutput.getId()}
+          </li>
+          <li class="list-group-item">Email: <a href ="mailto:${mOutput.getEmail()}">${mOutput.getEmail()}</a></li>
+          <li class="list-group-item">OfficeNumber: ${mOutput.officeNumber}</li>
+        </ul>
+        </div>
+      </div>
+    </div>
+      `
+      htmlBank.push(htmlGen);
+
       console.log(employees);
       //   };
 
@@ -150,7 +170,7 @@ function enginnerGen () {
     </div>
   </div>
     `
-    htmlBank.push(htmlGen)
+    htmlBank.push(htmlGen);
     console.log(employees);
     addEmployee();
   });
@@ -160,6 +180,25 @@ function internGen () {
   inquirer.prompt(questionsIntern).then(answers => {
     const iOutput = new Intern(answers.id, answers.name, answers.email, answers.school);
     employees.push(iOutput);
+    const htmlGen = `
+    <div class="card">
+    <div class= "card-header blue-style">
+      <h4>${iOutput.getName()}</h4>
+      <h5>${iOutput.getRole()}</h5>
+    </div>
+    <div class= "card-body">
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${iOutput.getId()}
+        </li>
+        <li class="list-group-item">Email: <a href ="mailto:${iOutput.getEmail()}">${iOutput.getEmail()}</a></li>
+        <li class="list-group-item">School: ${iOutput.getSchool()}</li>
+      </ul>
+      </div>
+    </div>
+  </div>
+    `
+    htmlBank.push(htmlGen)
     console.log(employees);
     addEmployee();
   });
