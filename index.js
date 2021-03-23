@@ -1,13 +1,14 @@
 // const jest = require('jest');
 const inquirer = require('inquirer');
 // const Employee = require('./lib/Employee.js');
+const fs = require("fs");
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
 let employees = [];
 
-const questions = [
+const questionsManager = [
   {
     type: 'input',
     name:'id',
@@ -76,7 +77,7 @@ const questionsIntern = [
 
 
 function init() {
-  inquirer.prompt(questions).then(answers => {
+  inquirer.prompt(questionsManager).then(answers => {
     //Callbacks from other defined functions using inquirer should go here, depending on the answer from roleAdd. This is where the engine should stay, change the prompt rather than this, don't forget.
 
 
@@ -120,8 +121,8 @@ function addEmployee() {
         console.log('Worked Intern!');
         internGen();
         break;
-      case 'None':
-        // linktest();
+      case 'None. Generate File Please!':
+        renderHTML();
     };
   });
 };
@@ -145,6 +146,14 @@ function internGen () {
 };
 
 
+function renderHTML () {
+  let html = `
+  <h1>Worked!</h1>
+  
+  `
+  writeToFile('./dist/generated.html', html);
+
+}
 
 
 
