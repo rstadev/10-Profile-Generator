@@ -7,7 +7,7 @@ const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
 
 let employees = [];
-
+let htmlBank = [];
 const questionsManager = [
   {
     type: 'input',
@@ -130,7 +130,27 @@ function addEmployee() {
 function enginnerGen () {
   inquirer.prompt(questionsEngineer).then(answers => {
     const eOutput = new Engineer(answers.id, answers.name, answers.email, answers.github);
-    employees.push(eOutput);
+    console.log(`${eOutput.getName()}`)
+    // employees.push(eOutput);
+    const htmlGen = `
+    <div class="card">
+    <div class= "card-header blue-style">
+      <h4>${eOutput.getName()}</h4>
+      <h5>${eOutput.getRole()}</h5>
+    </div>
+    <div class= "card-body">
+      <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${eOutput.getId()}
+        </li>
+        <li class="list-group-item">Email: <a href ="mailto:${eOutput.getEmail()}">${eOutput.getEmail()}</a></li>
+        <li class="list-group-item">Github: ${eOutput.getGitHub()}</li>
+      </ul>
+      </div>
+    </div>
+  </div>
+    `
+    htmlBank.push(htmlGen)
     console.log(employees);
     addEmployee();
   });
@@ -148,11 +168,35 @@ function internGen () {
 
 function renderHTML () {
   let html = `
-  <h1>Worked!</h1>
-  
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../src/style.css">
+  <title>My Team</title>
+</head>
+<body>
+  <div class="jumbotron jumbotron-fluid gray biggerdiv">
+    <div class="container text-center">
+      <h1 class="display-4">My Team</h1>
+    </div>
+  </div>
+  <div class="card-deck">
+    ${htmlBank.join('')}
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html>
   `
-  writeToFile('./dist/generated.html', html);
 
+
+
+
+
+  writeToFile('./dist/generated.html', html);
 }
 
 
@@ -178,75 +222,3 @@ module.exports = employees
 
 // console.log(robert);
 // const robert = new Employee('robert', 1, 'robert@place.net');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
