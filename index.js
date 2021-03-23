@@ -116,7 +116,7 @@ function init() {
       `
       htmlBank.push(htmlGen);
 
-      console.log(employees);
+      // console.log(employees);
       //   };
 
       // console.log(iOutput)
@@ -134,11 +134,11 @@ function addEmployee() {
   }).then(answers => {
     switch (answers.roleAdd) {
       case 'Engineer':
-        console.log('Worked Engineer!');
+        // console.log('Worked Engineer!');
         enginnerGen();
         break;
       case 'Intern':
-        console.log('Worked Intern!');
+        // console.log('Worked Intern!');
         internGen();
         break;
       case 'None. Generate File Please!':
@@ -150,7 +150,7 @@ function addEmployee() {
 function enginnerGen () {
   inquirer.prompt(questionsEngineer).then(answers => {
     const eOutput = new Engineer(answers.id, answers.name, answers.email, answers.github);
-    console.log(`${eOutput.getName()}`)
+    // console.log(`${eOutput.getName()}`)
     // employees.push(eOutput);
     const htmlGen = `
     <div class="card">
@@ -171,7 +171,7 @@ function enginnerGen () {
   </div>
     `
     htmlBank.push(htmlGen);
-    console.log(employees);
+    // console.log(employees);
     addEmployee();
   });
 };
@@ -199,7 +199,7 @@ function internGen () {
   </div>
     `
     htmlBank.push(htmlGen)
-    console.log(employees);
+    // console.log(employees);
     addEmployee();
   });
 };
