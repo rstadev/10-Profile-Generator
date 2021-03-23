@@ -32,9 +32,10 @@
   ## Usage
   To use this program, type in node index.js, and the script should launch. You will then be prompted to answer a variety of questions, the answers to which goes directly into html generation. You can then use this has a pregenerated starting point, or implement the page directly into your site.
   <br>
-  ![ReadMeGen Picture](https://raw.githubusercontent.com/rstadev/9-ReadMe-Generator/main/Develop/assets/ReadMeGeneratorDemopic.png)
+  ![ReadMeGen Picture](https://raw.githubusercontent.com/rstadev/10-Profile-Generator/main/src/teamprofiledemo.png)
 
-  A demo video can be downloaded and watched here: https://github.com/rstadev/9-ReadMe-Generator/blob/main/Develop/assets/demovideoReadMeGen.mp4
+  A demo video can be downloaded and watched here: https://github.com/rstadev/10-Profile-Generator/blob/main/src/teamprofilegen.mp4
+
   ## License
   Link at: https://opensource.org/licenses/MIT
   <br>
